@@ -11,7 +11,7 @@ export interface IAnimalRowState {
    
 }
 
-export class AnimalRow extends React.Component<IAnimalRowProps, IAnimalRowState> {
+ class AnimalRow extends React.Component<IAnimalRowProps, IAnimalRowState> {
     constructor(props: IAnimalRowProps) {
         super(props);
 
@@ -24,6 +24,7 @@ export class AnimalRow extends React.Component<IAnimalRowProps, IAnimalRowState>
          <div>{animalRow.animalid}  {animalRow.name} {animalRow.type} {animalRow.age}</div> 
 
         )
-
     }
 }
+
+export default AnimalRow;
