@@ -13,10 +13,10 @@ export interface IAnimalRowState {
 }
 
  class AnimalRow extends React.Component<IAnimalRowProps, IAnimalRowState> {
-    constructor(props: IAnimalRowProps) {
-        super(props);
+    // constructor(props: IAnimalRowProps) {
+    //     super(props);
 
-    }
+    // }
 
     onAnimalRemove = (id: number) => {
         this.props.onAnimalRemove(id);
@@ -25,7 +25,6 @@ export interface IAnimalRowState {
     render() {
         const { animalRow } = this.props;
         return (
-            
             <div>
                 {animalRow.animalid}  
                 {animalRow.name} {animalRow.type} {animalRow.age}  

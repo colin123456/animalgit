@@ -8,6 +8,7 @@ interface AnimalListProps {
     animals: Array<IAnimal> ;
     onAnimalRemove(id: number) : void;
     onAnimalAdd(animal: IAnimal) : void; 
+    onAnimalSortByName(): void;
 }
 
 interface AmimalListState { 
@@ -34,6 +35,9 @@ class AnimalList extends React.Component<AnimalListProps, AmimalListState> {
         this.props.onAnimalAdd(animalNew);
     }
 
+    onAnimalSortByName = () => {
+        this.props.onAnimalSortByName();
+    }
 
     handleNameChange = (event: any) => {
         this.setState({ name: event.target.value });
@@ -75,12 +79,10 @@ class AnimalList extends React.Component<AnimalListProps, AmimalListState> {
 
                                 <input type="submit" value="Submit" />
                         </form>
-        
-
         return (
             <div>
                 <div>{addForm}</div>
-
+                    <div><button onClick={(e) => this.onAnimalSortByName()}>Sort By Name </button></div>
                 <div className="animal-list">{animals}</div>
             </div>
         )

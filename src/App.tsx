@@ -1,30 +1,3 @@
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-
-// const App: React.FC = () => {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React from 'react';
 import AnimalList from '../src/components/animal-list';
 
@@ -38,6 +11,7 @@ interface AnimalListProps { }
 interface AnimalListState { 
   
   animals: Array<IAnimal>;
+  animalSortByNameAsc: boolean;
 
 
 }
@@ -46,7 +20,7 @@ class App extends React.Component<AnimalListProps, AnimalListState> {
   constructor(props: AnimalListProps) {
     super(props);
 
-    this.state = {animals: this.animalList()}
+    this.state = {animals: this.animalList(), animalSortByNameAsc: true}
 
   }
 
@@ -80,12 +54,55 @@ onAnimalAdd = (animal: IAnimal) => {
   this.setState({ animals: [...this.state.animals, animal] }) 
 }
 
+onAnimalSortByName = () => {
+  this.state.animalSortByNameAsc ? this.onAnimalSortByNameAsc() : this.onAnimalSortByNameDesc();
+}
+
+
+onAnimalSortByNameAsc = () => {
+// sort by name
+const sortedByName = this.state.animals.sort(function(a, b) {
+  var nameA = a.name.toUpperCase(); 
+  var nameB = b.name.toUpperCase(); 
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  // names must be equal
+  return 0;
+})
+
+this.setState({animals: sortedByName, animalSortByNameAsc: false});
+}
+
+onAnimalSortByNameDesc = () => {
+  // sort by name
+  const sortedByName = this.state.animals.sort(function(b, a) {
+    var nameA = a.name.toUpperCase(); 
+    var nameB = b.name.toUpperCase(); 
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+  
+    // names must be equal
+    return 0;
+  });
+  
+  this.setState({animals: sortedByName, animalSortByNameAsc: true});
+  }
+
 
   render() {
     return (
       <React.Fragment>
           <div>        
-            <AnimalList animals={this.state.animals} onAnimalRemove={this.onAnimalRemove} onAnimalAdd={this.onAnimalAdd} />
+            <AnimalList animals={this.state.animals} onAnimalRemove={this.onAnimalRemove} onAnimalAdd={this.onAnimalAdd} onAnimalSortByName={this.onAnimalSortByName} />
           </div>
       </React.Fragment>
 
