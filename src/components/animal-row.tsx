@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { IAnimal } from '../components/models/animal';
+import './animal-list.css';
 
 export interface IAnimalRowProps {
     animalRow: IAnimal;
@@ -25,11 +26,11 @@ export interface IAnimalRowState {
     render() {
         const { animalRow } = this.props;
         return (
-            <div>
-                {animalRow.animalid}  
-                {animalRow.name} {animalRow.type} {animalRow.age}  
+            <li className="enforcement-app-period-row-container"> 
+                {animalRow.animalid}   
+                {animalRow.name} is a {animalRow.type} who is {animalRow.age} years old  
                     <button onClick={(e) => this.onAnimalRemove(animalRow.animalid)}>Remove </button>
-            </div> 
+            </li> 
         )
     }
 }

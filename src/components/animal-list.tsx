@@ -1,7 +1,8 @@
 import React from 'react';
 import AnimalRow from '../components/animal-row'
 import { IAnimal } from '../components/models/animal';
-
+//import './App.css';
+import './animal-list.css';
 
 interface AnimalListProps { 
     
@@ -63,7 +64,7 @@ class AnimalList extends React.Component<AnimalListProps, AmimalListState> {
             return <AnimalRow animalRow={animal} onAnimalRemove={this.props.onAnimalRemove}  key={animal.animalid}  />
             });
 
-        const addForm =  <form onSubmit={this.handleSubmit}>
+        const addForm =  <form className="image-list" onSubmit={this.handleSubmit}>
                             <label>
                                 Name:
                                 <input type="text" value={this.state.name} onChange={this.handleNameChange} />
@@ -77,13 +78,16 @@ class AnimalList extends React.Component<AnimalListProps, AmimalListState> {
                                 <input type="text" value={this.state.age} onChange={this.handleAgeChange} />
                             </label>
 
-                                <input type="submit" value="Submit" />
+                                <input type="submit" value="Add Animal" />
                         </form>
         return (
             <div>
+                <br />
+                <br />
+                <div className="add-animal-title">Please add a new animal...</div>
                 <div>{addForm}</div>
                     <div><button onClick={(e) => this.onAnimalSortByName()}>Sort By Name </button></div>
-                <div className="animal-list">{animals}</div>
+                <ul className="enforcement-app-periods-container">{animals}</ul>
             </div>
         )
     }

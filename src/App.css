@@ -1,22 +1,115 @@
-.App {
-  text-align: center;
+.container {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
-.App-logo {
-  height: 40vmin;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.text-box {
+  /* position: absolute; */
+  /* top: 40%; */
+  /* left: 40%; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 48%;
+  padding: 20px;
+  background-color: #010101;
+  border: 10px solid #F7941D;
+
+  
+  /* transform: translate(-50%, -50%); */
+   box-shadow: 0 1.5rem 4rem rgb(69, 69, 69, .4);
+  border-radius: 2px;
 }
 
-.App-link {
-  color: #09d3ac;
+.heading-primary {
+  color: #fff; 
+  /* color: rgb(247, 148, 29);  */
+  /* color: #92C127;
+  text-shadow: rgb(247, 148, 29); */
+  text-transform: uppercase;
+  backface-visibility: hidden;
+ 
 }
+
+.heading-primary-main {
+  
+  display:block;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 10px;
+  margin-top: -10px;
+  text-align: center;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  /* background-color: black; */
+  /* animation-delay: 1s; */
+
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-align: center;
+  padding-bottom: 10px;
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  /* background-color: rgb(247, 148, 29); */
+ 
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  80% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+
+  }
+}
+

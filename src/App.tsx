@@ -101,11 +101,20 @@ onAnimalSortByNameDesc = () => {
   render() {
     return (
       <React.Fragment>
-          <div>        
-            <AnimalList animals={this.state.animals} onAnimalRemove={this.onAnimalRemove} onAnimalAdd={this.onAnimalAdd} onAnimalSortByName={this.onAnimalSortByName} />
-          </div>
-      </React.Fragment>
+        <div className="container">
 
+        <div className="text-box">
+            <h1 className="heading-primary">
+              <span className="heading-primary-main">Animal Zoo Time</span>
+              <span className="heading-primary-sub">Zoo Grid</span>
+            </h1>
+          </div>
+          
+              <AnimalList animals={this.state.animals} onAnimalRemove={this.onAnimalRemove} onAnimalAdd={this.onAnimalAdd} onAnimalSortByName={this.onAnimalSortByName} />
+         
+         
+        </div>
+      </React.Fragment>
     );
   }
 }
