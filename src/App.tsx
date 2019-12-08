@@ -74,12 +74,18 @@ onAnimalRemove = (id: number) => {
 }
 
 
+onAnimalAdd = (animal: IAnimal) => {
+  const maxAnimalId = Math.max(...this.state.animals.map(o => o.animalid), 0);
+  animal.animalid = maxAnimalId + 1;
+  this.setState({ animals: [...this.state.animals, animal] }) 
+}
+
 
   render() {
     return (
       <React.Fragment>
           <div>        
-            <AnimalList animals={this.state.animals} onAnimalRemove={this.onAnimalRemove} />
+            <AnimalList animals={this.state.animals} onAnimalRemove={this.onAnimalRemove} onAnimalAdd={this.onAnimalAdd} />
           </div>
       </React.Fragment>
 
