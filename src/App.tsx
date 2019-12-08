@@ -56,18 +56,30 @@ class App extends React.Component<AnimalListProps, AnimalListState> {
                     {animalid: 1, name: "Tom", type: "Cat", age: 5},
                     {animalid: 2, name: "Jerry", type: "Mouse", age: 2},
                     {animalid: 3, name: "Scooby", type: "Dog", age: 5},
-                    {animalid: 4, name: "Maria", type: "Bird", age: 5}
+                    {animalid: 4, name: "Maria", type: "Bird", age: 5},
+                    {animalid: 5, name: "Jaws", type: "Fish", age: 5}
                 ]
     return (
               animals
     )
    
 }
+
+onAnimalRemove = (id: number) => {
+  const filteredAnimals = this.state.animals.filter((animal) => {
+    return animal.animalid !== id;
+  })
+
+  this.setState({animals: filteredAnimals});
+}
+
+
+
   render() {
     return (
       <React.Fragment>
           <div>        
-            <AnimalList animals={this.state.animals} />
+            <AnimalList animals={this.state.animals} onAnimalRemove={this.onAnimalRemove} />
           </div>
       </React.Fragment>
 

@@ -3,7 +3,11 @@ import AnimalRow from '../components/animal-row'
 import { IAnimal } from '../components/models/animal';
 
 
-interface AnimalListProps { animals: Array<IAnimal> }
+interface AnimalListProps { 
+    
+    animals: Array<IAnimal> 
+    onAnimalRemove(id: number) : void;
+}
 
 interface AmimalListState { }
 
@@ -16,7 +20,7 @@ class AnimalList extends React.Component<AnimalListProps, AmimalListState> {
     render() {
 
         const animals = this.props.animals.map((animal) => {
-            return <AnimalRow animalRow={animal} key={animal.animalid}  />
+            return <AnimalRow animalRow={animal} onAnimalRemove={this.props.onAnimalRemove}  key={animal.animalid}  />
             }
         )
 
