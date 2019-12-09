@@ -111,7 +111,7 @@ onAnimalSortByNameDesc = () => {
           </div>
           
               <AnimalList animals={this.state.animals} onAnimalRemove={this.onAnimalRemove} onAnimalAdd={this.onAnimalAdd} onAnimalSortByName={this.onAnimalSortByName} />
-         
+             
          
         </div>
       </React.Fragment>

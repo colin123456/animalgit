@@ -65,20 +65,20 @@ class AnimalList extends React.Component<AnimalListProps, AmimalListState> {
             });
 
         const addForm =  <form className="image-list" onSubmit={this.handleSubmit}>
-                            <label>
+                            <label >
                                 Name:
-                                <input type="text" value={this.state.name} onChange={this.handleNameChange} />
+                                <input type="text"  value={this.state.name} onChange={this.handleNameChange} />
                             </label>
-                            <label>
+                            <label >
                                 Type:
-                                <input type="text" value={this.state.type} onChange={this.handleTypeChange} />
+                                <input type="text"  value={this.state.type} onChange={this.handleTypeChange} />
                             </label>
                             <label>
                                 Age:
-                                <input type="text" value={this.state.age} onChange={this.handleAgeChange} />
+                                <input type="text"  value={this.state.age} onChange={this.handleAgeChange} />
                             </label>
 
-                                <input type="submit" value="Add Animal" />
+                                <input type="submit"  value="Add Animal" />
                         </form>
         return (
             <div>
@@ -87,7 +87,7 @@ class AnimalList extends React.Component<AnimalListProps, AmimalListState> {
                 <div className="add-animal-title">Please add a new animal...</div>
                 <div>{addForm}</div>
                     <div><button onClick={(e) => this.onAnimalSortByName()}>Sort By Name </button></div>
-                <ul className="enforcement-app-periods-container">{animals}</ul>
+                <ul className="animal-app-periods-container">{animals}</ul>
             </div>
         )
     }

@@ -26,7 +26,7 @@ export interface IAnimalRowState {
     render() {
         const { animalRow } = this.props;
         return (
-            <li className="enforcement-app-period-row-container"> 
+            <li className="animal-app-period-row-container"> 
                 {animalRow.animalid}   
                 {animalRow.name} is a {animalRow.type} who is {animalRow.age} years old  
                     <button onClick={(e) => this.onAnimalRemove(animalRow.animalid)}>Remove </button>
